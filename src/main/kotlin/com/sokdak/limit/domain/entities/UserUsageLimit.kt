@@ -24,6 +24,11 @@ data class UserUsageLimit(
         updatedAt = Instant.now()
     }
 
+    fun restore(count: Int = 1) {
+        dailyUsed = maxOf(0, dailyUsed - count)
+        updatedAt = Instant.now()
+    }
+
     fun resetIfNeeded(currentDate: LocalDate = LocalDate.now()) {
         if (lastResetDate.isBefore(currentDate)) {
             dailyUsed = 0
