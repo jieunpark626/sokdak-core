@@ -51,6 +51,9 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+    implementation("de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 ktlint {

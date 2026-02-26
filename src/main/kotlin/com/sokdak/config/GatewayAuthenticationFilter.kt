@@ -26,8 +26,7 @@ class GatewayAuthenticationFilter(
 
     override fun shouldNotFilter(request: HttpServletRequest): Boolean {
         val path = request.requestURI
-        // error 경로만 필터 제외
-        return path == "/error"
+        return path == "/error" || path.startsWith("/actuator")
     }
 
     override fun doFilterInternal(
