@@ -25,6 +25,14 @@ class UserUsageLimitRepositoryImpl(
             .findByUserIdAndAction(userId, action)
             ?.toDomain()
 
+    override fun findByUserIdAndActionWithLock(
+        userId: String,
+        action: ActionType,
+    ): UserUsageLimit? =
+        jpaRepository
+            .findByUserIdAndActionWithLock(userId, action)
+            ?.toDomain()
+
     override fun findAllByUserId(userId: String): List<UserUsageLimit> =
         jpaRepository
             .findAllByUserId(userId)

@@ -18,6 +18,10 @@ spring:
         format_sql: false
         show_sql: false
 
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration
+
   data:
     redis:
       host: localhost
@@ -29,6 +33,11 @@ spring:
     port: 25
     username: test
     password: test
+
+management:
+  health:
+    redis:
+      enabled: false
 
 server:
   port: 8080

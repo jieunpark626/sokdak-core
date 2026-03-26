@@ -16,7 +16,7 @@ class ConsumeUsageLimitUseCase(
     @Transactional
     fun execute(command: ConsumeUsageLimitCommand): UserUsageLimit {
         val limit =
-            limitRepository.findByUserIdAndAction(command.userId, command.action)
+            limitRepository.findByUserIdAndActionWithLock(command.userId, command.action)
                 ?: throw LimitNotFoundException(command.userId, command.action.name)
 
         val today = LocalDate.now()

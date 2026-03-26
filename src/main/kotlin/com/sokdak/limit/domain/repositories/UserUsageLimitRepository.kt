@@ -11,5 +11,10 @@ interface UserUsageLimitRepository {
         action: ActionType,
     ): UserUsageLimit?
 
+    fun findByUserIdAndActionWithLock(
+        userId: String,
+        action: ActionType,
+    ): UserUsageLimit?
+
     fun findAllByUserId(userId: String): List<UserUsageLimit>
 }
